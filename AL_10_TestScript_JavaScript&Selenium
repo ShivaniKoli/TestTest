@@ -1,0 +1,24 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+public class ScrollByVisibleBox {
+
+    WebDriver driver;
+    public void ByVisibleBox() {
+        WebDriver driver = new ChromeDriver();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+	
+        driver.get("http://cdn.adpushup.com/qaTakeHomeTask/");
+		
+        WebElement Box1 = driver.findElement(By. cssSelector ("ad-box"));
+        WebElement Box2 = driver.findElement(By. cssSelector ("ad-box"));
+	
+        js.executeScript("arguments[0].scrollIntoView();", Box1);
+        js.executeScript("arguments[0].scrollIntoView();", Box2);
+
+    }
+}
